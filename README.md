@@ -1,20 +1,14 @@
 # Test Automation with Java
-Web test automation example project using IntelliJ IDEA Community, Java, Maven, TestNG, Selenium 3, Appium and Page Object Model (POM)
+Web test automation example project using Eclipse, Java, Maven, TestNG, Selenium 3, Appium and Page Object Model (POM)
 
 ## Test Subject
-I've picked [www.bbc.co.uk](www.bbc.co.uk) as a test subject for no particular reason.
-It's is a large site and does have variety of features that we can play around with.
+I've picked [https://the-internet.herokuapp.com/login] as a test subject.
 
 ## Libraries and Frameworks
-Version for some of these can be found in the [POM](https://github.com/opantsjoha/test-automation-java/blob/master/pom.xml) file.
 * Selenium - Web automation
 * Appium - Mobile automation
 * Maven - Build and package management
 * TestNG - Test execution and Reporting
-
-## Tools
-Using [IntelliJ IDEA Community](https://www.jetbrains.com/idea/) version.
-I've previously used Eclipse and found it to be a little bit slower and not as intuitive, you're free to try both and decide for yourself. Also there are a lot of comparison articles out there already. 
 
 ## Programming Language
 I'm using [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) version jdk1.8.0_111 and it works very well.
