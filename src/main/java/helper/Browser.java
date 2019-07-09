@@ -13,11 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by opantsjoha on 02/07/2017.
- */
 public class Browser {
-
 
     public Browser(String browserName, String baseUrl) {
         setBrowser(browserName);
@@ -27,22 +23,20 @@ public class Browser {
 
     private void Initialise(String browser) {
         capabilities = new DesiredCapabilities();
-        seleniumFolderPath = System.getProperty("user.home") + "/Documents/umservices/selenium3/";
+        seleniumFolderPath = System.getProperty("user.home") + "/Documents/JavaSelenium";
 
         switch (browser) {
             case "Chrome":
                 ChromeOptions chrome_options = new ChromeOptions();
                 chrome_options.addArguments("--disable-geolocation");
                 chrome_options.addArguments("--incognito");
-                System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "chromedriver");
+                System.setProperty("webdriver.chrome.driver", "/Downloads/chromedriver.exe");
                 capabilities.setBrowserName("chrome");
                 capabilities.setCapability(ChromeOptions.CAPABILITY, chrome_options);
-//                _driver = new ChromeDriver(capabilities);
                 break;
             case "Safari":
                 capabilities.setBrowserName("safari");
 
-//                _driver = new SafariDriver();
                 break;
             case "Firefox":
                 FirefoxProfile ff_profile = new FirefoxProfile();
@@ -51,8 +45,6 @@ public class Browser {
                 System.setProperty("webdriver.gecko.driver", seleniumFolderPath + "geckodriver");
                 capabilities.setBrowserName("firefox");
                 capabilities.setCapability(FirefoxDriver.PROFILE, ff_profile);
-
-//                _driver = new FirefoxDriver(capabilities);
                 break;
             case "InternetExplorer":
                 System.setProperty("webdriver.ie.driver", seleniumFolderPath + "IEDriverServer.exe");

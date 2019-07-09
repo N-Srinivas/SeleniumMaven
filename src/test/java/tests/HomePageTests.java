@@ -1,12 +1,12 @@
 package tests;
 
 import helper.Browser;
-import helper.TestHelper;
-import org.testng.annotations.*;
 
-/**
- * Created by opantsjoha on 02/07/2017.
- */
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+import helper.TestHelper;
+
 public class HomePageTests extends TestHelper {
 
     Browser browser;
@@ -18,11 +18,30 @@ public class HomePageTests extends TestHelper {
         browser.navigateToBaseUrl();
     }
 
+    /* Validate Page Title */
     @Test(groups = {"web"})
-    public void searchTest() throws InterruptedException {
-        browser.HomePage().HeaderSection().setSearchField("Cooking");
-        browser.HomePage().HeaderSection().clickOnSearchButton();
-        // todo: add assert
+    public void validatePageTitle() throws InterruptedException {
+    	String actualTitle = "The Internet";
+    	 Assert.assertEquals(((WebDriver) browser).getTitle(), actualTitle);
+    }
+    
+    /* Validate User name and Password Inputs */
+    @Test(groups = {"web"})
+    public void landOnLoginPage() throws InterruptedException {
+    String actualTitle = "Login Page";
+   	 Assert.assertEquals(((WebDriver) browser).getTitle(), actualTitle);
+   	browser.HomePage().HeaderSection().setUserName("tomsmith");
+   	browser.HomePage().HeaderSection().setUserPassword("SuperSecretPassword!");
+   	browser.HomePage().HeaderSection().clickOnLoginButton();
+    }
+    
+    /* Validate Error Message Use Case */
+    @Test(groups = {"web"})
+    public void validateErrorMsg() throws InterruptedException {
+   	browser.HomePage().HeaderSection().setUserName("tomsmith1");
+   	browser.HomePage().HeaderSection().setUserPassword("SuperSecretPassword!1");
+   	browser.HomePage().HeaderSection().clickOnLoginButton();
+   	browser.HomePage().HeaderSection().assertErrorText();
     }
 
     @AfterClass(groups = {"web"})
